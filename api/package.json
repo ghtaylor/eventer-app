@@ -14,7 +14,9 @@
     "dotenv": "^16.4.5",
     "drizzle-orm": "^0.30.7",
     "express": "^4.19.2",
+    "neverthrow": "^6.1.0",
     "postgres": "^3.4.4",
+    "type-fest": "^4.15.0",
     "zod": "^3.22.4"
   }
 }

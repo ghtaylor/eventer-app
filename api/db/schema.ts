@@ -1,5 +1,5 @@
 import { relations } from "drizzle-orm";
-import { date, integer, pgEnum, pgTable, text, uuid, varchar, timestamp } from "drizzle-orm/pg-core";
+import { integer, pgTable, text, timestamp, uuid, varchar } from "drizzle-orm/pg-core";
 
 export const events = pgTable("events", {
   id: uuid("id").primaryKey().defaultRandom(),
@@ -12,14 +12,12 @@ export const eventsRelations = relations(events, ({ many }) => ({
   tickets: many(tickets),
 }));
 
-export const ticketTypeEnum = pgEnum("ticket_type", ["Adult", "Family", "Child"]);
-
 export const tickets = pgTable("tickets", {
   id: uuid("id").primaryKey().defaultRandom(),
   eventId: uuid("event_id")
-    .references(() => events.id)
+    .references(() => events.id, { onDelete: "cascade" })
     .notNull(),
-  type: ticketTypeEnum("type").notNull(),
+  type: varchar("type", { length: 256 }).notNull(),
   priceCentAmount: integer("price_cent_amount").notNull(),
   bookingFeeCentAmount: integer("booking_fee_cent_amount").notNull(),
   quantity: integer("quantity").notNull(),
