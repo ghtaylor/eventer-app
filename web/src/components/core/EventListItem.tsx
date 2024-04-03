@@ -25,7 +25,7 @@ const EventListItem = forwardRef<
   const isAvailable = useMemo(() => event.tickets.some((ticket) => ticket.quantity > 0), [event.tickets]);
 
   return (
-    <li ref={ref} className={cn("relative group", className)} {...props}>
+    <li ref={ref} className={cn("relative group overflow-hidden", className)} {...props}>
       <Link href={href}>
         <Image
           src={`/${event.id}.jpg`}
