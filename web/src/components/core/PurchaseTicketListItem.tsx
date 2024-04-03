@@ -1,38 +1,22 @@
-"use client";
-
-import { Ticket } from "@kaboodle-events-app/db/schema";
-import React, { forwardRef, useCallback, useEffect, useMemo, useState } from "react";
-import { Button } from "../ui/button";
 import { cn } from "@/lib/utils";
+import { Ticket } from "@kaboodle-events-app/db/schema";
+import React, { forwardRef, useMemo } from "react";
 import { LuMinus, LuPlus } from "react-icons/lu";
+import { Button } from "../ui/button";
 
 interface PurchaseTicketListItemProps {
   ticket: Ticket;
-  onSelectedCountChange?: (id: string, count: number) => void;
+  selectedCount?: number;
+  incrementCount?: () => void;
+  decrementCount?: () => void;
 }
 
 const PurchaseTicketListItem = forwardRef<
   HTMLLIElement,
   React.HTMLAttributes<HTMLLIElement> & PurchaseTicketListItemProps
->(({ ticket, onSelectedCountChange, className, ...props }, ref) => {
-  const [selectedCount, setSelectedCount] = useState(0);
-
+>(({ ticket, selectedCount, incrementCount, decrementCount, className, ...props }, ref) => {
   const ticketPrice = useMemo(() => ticket.priceCentAmount / 100, [ticket.priceCentAmount]);
   const ticketBookingFee = useMemo(() => ticket.bookingFeeCentAmount / 100, [ticket.bookingFeeCentAmount]);
-
-  const increment = useCallback(() => {
-    setSelectedCount((count) => Math.min(count + 1, ticket.quantity));
-  }, []);
-
-  const decrement = useCallback(() => {
-    setSelectedCount((count) => Math.max(0, count - 1));
-  }, []);
-
-  useEffect(() => {
-    if (onSelectedCountChange) {
-      onSelectedCountChange(ticket.id, selectedCount);
-    }
-  }, [onSelectedCountChange, selectedCount, ticket.id]);
 
   return (
     <li ref={ref} className={cn("flex gap-x-6 items-center p-4", className)} {...props}>
@@ -43,10 +27,10 @@ const PurchaseTicketListItem = forwardRef<
         <span className="text-sm italic block">+ £{ticketBookingFee} booking fee</span>
       </div>
       <div>
-        <Button variant="secondary" onClick={decrement}>
+        <Button variant="secondary" onClick={decrementCount}>
           <LuMinus />
         </Button>
-        <Button variant="secondary" onClick={increment}>
+        <Button variant="secondary" onClick={incrementCount}>
           <LuPlus />
         </Button>
       </div>
