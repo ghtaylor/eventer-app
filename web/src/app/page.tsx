@@ -1,9 +1,9 @@
-import EventsSection from "@/components/EventsSection";
-import HeroSection from "@/components/HeroSection";
+import EventsSection from "@/components/home/EventsSection";
+import HeroSection from "@/components/home/HeroSection";
 
 export default async function Home() {
   return (
-    <main className="min-h-screen bg-gray-950">
+    <main className="min-h-screen bg-background">
       <HeroSection />
       <EventsSection />
     </main>

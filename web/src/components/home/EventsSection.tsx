@@ -1,5 +1,5 @@
 import { EventService } from "@/lib/data";
-import EventListItem from "./main/EventListItem";
+import EventListItem from "../core/EventListItem";
 
 const EventsSection: React.FC = async () => {
   const eventService = new EventService();

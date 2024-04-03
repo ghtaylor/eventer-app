@@ -25,7 +25,7 @@ const EventListItem = forwardRef<
   const isAvailable = useMemo(() => event.tickets.some((ticket) => ticket.quantity > 0), [event.tickets]);
 
   return (
-    <li ref={ref} className={cn("relative w-full overflow-hidden group", className)} {...props}>
+    <li ref={ref} className={cn("relative group", className)} {...props}>
       <Link href={href}>
         <Image
           src={`/${event.id}.jpg`}
@@ -35,13 +35,11 @@ const EventListItem = forwardRef<
         />
         <div className="h-full flex flex-col justify-between">
           <div className="z-10 m-6">
-            <span className="text-white font-bold uppercase bg-gray-950 p-2">
-              {isAvailable ? "Available" : "Sold Out"}
-            </span>
+            <span className=" font-bold uppercase bg-background p-2">{isAvailable ? "Available" : "Sold Out"}</span>
           </div>
-          <div className="w-full p-6 bg-gradient-to-t from-gray-900 to-transparent z-10">
-            <span className="text-white">{formattedDate}</span>
-            <h2 className="text-white text-5xl font-bold tracking-tighter">{event.name}</h2>
+          <div className="w-full p-6 bg-gradient-to-t from-background to-transparent z-10">
+            <span className="">{formattedDate}</span>
+            <h2 className=" text-5xl font-bold tracking-tighter">{event.name}</h2>
           </div>
         </div>
       </Link>
