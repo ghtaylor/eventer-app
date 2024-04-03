@@ -37,10 +37,12 @@ export const Ticket = createSelectSchema(tickets);
 export const EventWithTickets = Event.extend({
   tickets: Ticket.array(),
 });
-export const NewEvent = createInsertSchema(events);
+export const NewEvent = createInsertSchema(events, {
+  date: z.coerce.date(),
+});
 export const NewTicket = createInsertSchema(tickets);
 export const NewEventWithTickets = NewEvent.extend({
-  tickets: NewTicket.array(),
+  tickets: NewTicket.omit({ eventId: true }).array(),
 });
 
 export type Event = z.infer<typeof Event>;

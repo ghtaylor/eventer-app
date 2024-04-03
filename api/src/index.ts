@@ -8,6 +8,9 @@ import EventsController from "controllers/events.controller";
 
 const app = express();
 
+// Middleware to parse JSON bodies
+app.use(express.json());
+
 const db = drizzle(
   postgres({
     host: process.env.DB_HOST,
