@@ -94,6 +94,9 @@ importers:
 
   web:
     dependencies:
+      '@kaboodle-events-app/db':
+        specifier: workspace:*
+        version: link:../db
       class-variance-authority:
         specifier: ^0.7.0
         version: 0.7.0
