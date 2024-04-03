@@ -1,6 +1,23 @@
+import EventListItem from "@/components/main/EventListItem";
 import { getEvents } from "@/lib/data";
 
 export default async function Home() {
   const events = await getEvents();
-  return <main className="flex min-h-screen flex-col items-center justify-between p-24"></main>;
+  return (
+    <main className="min-h-screen p-4">
+      <section>
+        <div className="flex justify-between">
+          <h2 className="font-bold text-lg">Upcoming Events</h2>
+          <a href="#" className="text-sm">
+            See all
+          </a>
+        </div>
+        <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+          {events.map((event) => (
+            <EventListItem key={event.id} event={event} />
+          ))}
+        </ul>
+      </section>
+    </main>
+  );
 }

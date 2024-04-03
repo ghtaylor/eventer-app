@@ -35,6 +35,7 @@ export const ticketsRelations = relations(tickets, ({ one }) => ({
 export const Event = createSelectSchema(events);
 export const Ticket = createSelectSchema(tickets);
 export const EventWithTickets = Event.extend({
+  date: z.coerce.date(),
   tickets: Ticket.array(),
 });
 export const NewEvent = createInsertSchema(events, {
