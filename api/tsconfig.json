@@ -1,8 +1,10 @@
 {
   "extends": "@tsconfig/recommended/tsconfig.json",
   "compilerOptions": {
-    "baseUrl": "./src"
+    "baseUrl": "./src",
+    "moduleResolution": "Bundler",
+    "module": "ESNext"
   },
-  "include": ["src/**/*.ts", "db/schema.ts", "drizzle.config.ts"],
+  "include": ["src/**/*.ts", "../db/schema.ts", "../db/drizzle.config.ts"],
   "exclude": ["node_modules"]
 }

@@ -1,5 +1,7 @@
 import { relations } from "drizzle-orm";
 import { integer, pgTable, text, timestamp, uuid, varchar } from "drizzle-orm/pg-core";
+import { createInsertSchema, createSelectSchema } from "drizzle-zod";
+import { z } from "zod";
 
 export const events = pgTable("events", {
   id: uuid("id").primaryKey().defaultRandom(),
@@ -29,3 +31,21 @@ export const ticketsRelations = relations(tickets, ({ one }) => ({
     references: [events.id],
   }),
 }));
+
+export const Event = createSelectSchema(events);
+export const Ticket = createSelectSchema(tickets);
+export const EventWithTickets = Event.extend({
+  tickets: Ticket.array(),
+});
+export const NewEvent = createInsertSchema(events);
+export const NewTicket = createInsertSchema(tickets);
+export const NewEventWithTickets = NewEvent.extend({
+  tickets: NewTicket.array(),
+});
+
+export type Event = z.infer<typeof Event>;
+export type Ticket = z.infer<typeof Ticket>;
+export type EventWithTickets = z.infer<typeof EventWithTickets>;
+export type NewEvent = z.infer<typeof NewEvent>;
+export type NewTicket = z.infer<typeof NewTicket>;
+export type NewEventWithTickets = z.infer<typeof NewEventWithTickets>;

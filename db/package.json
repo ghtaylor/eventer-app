@@ -1,0 +1,21 @@
+{
+  "name": "@kaboodle-events-app/db",
+  "private": true,
+  "version": "1.0.0",
+  "exports": {
+    "./schema": "./schema.ts"
+  },
+  "scripts": {
+    "migration:generate": "drizzle-kit generate:pg",
+    "migration:run": "drizzle-kit push:pg",
+    "studio": "drizzle-kit studio"
+  },
+  "dependencies": {
+    "drizzle-orm": "^0.30.7",
+    "drizzle-zod": "^0.5.1",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "drizzle-kit": "^0.20.14"
+  }
+}
