@@ -5,16 +5,15 @@ EXCEPTION
 END $$;
 --> statement-breakpoint
 CREATE TABLE IF NOT EXISTS "events" (
-	"id" uuid PRIMARY KEY NOT NULL,
+	"id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
 	"name" varchar(256) NOT NULL,
 	"description" text,
-	"date" date NOT NULL
+	"date" timestamp with time zone NOT NULL
 );
 --> statement-breakpoint
 CREATE TABLE IF NOT EXISTS "tickets" (
-	"id" uuid PRIMARY KEY NOT NULL,
+	"id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
 	"event_id" uuid NOT NULL,
-	"name" varchar(256) NOT NULL,
 	"type" "ticket_type" NOT NULL,
 	"price_cent_amount" integer NOT NULL,
 	"booking_fee_cent_amount" integer NOT NULL,
