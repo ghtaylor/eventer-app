@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 import { EventWithTickets } from "@kaboodle-events-app/db/schema";
 import Image from "next/image";
 import Link, { LinkProps } from "next/link";
-import { AnchorHTMLAttributes, forwardRef, useMemo } from "react";
+import { forwardRef, useMemo } from "react";
 
 interface EventListItemProps {
   event: EventWithTickets;
