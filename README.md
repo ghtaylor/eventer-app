@@ -9,7 +9,7 @@ A full-stack event application that enables the user to view, create and delete 
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/kaboodle-events-app
+   git clone https://github.com/ghtaylor/kaboodle-events-app.git
    ```
 
 2. Navigate to the repository
