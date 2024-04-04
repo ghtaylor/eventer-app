@@ -1,8 +1,10 @@
+"use client";
+
 import { cn } from "@/lib/utils";
 import { EventWithTickets } from "@kaboodle-events-app/db/schema";
 import Image from "next/image";
 import Link, { LinkProps } from "next/link";
-import { forwardRef, useMemo } from "react";
+import { forwardRef, useMemo, useState } from "react";
 
 interface EventListItemProps {
   event: EventWithTickets;
@@ -24,12 +26,15 @@ const EventListItem = forwardRef<
 
   const isAvailable = useMemo(() => event.tickets.some((ticket) => ticket.quantity > 0), [event.tickets]);
 
+  const [placeholderImageRequired, setPlaceholderImageRequired] = useState(false);
+
   return (
     <li ref={ref} className={cn("relative group overflow-hidden", className)} {...props}>
       <Link href={href}>
         <Image
-          src={`/${event.id}.jpg`}
+          src={placeholderImageRequired ? "/placeholder.jpg" : `/${event.id}.jpg`}
           alt={event.name}
+          onError={() => setPlaceholderImageRequired(true)}
           className="object-cover scale-100 group-hover:scale-105 transition-all"
           fill
         />
