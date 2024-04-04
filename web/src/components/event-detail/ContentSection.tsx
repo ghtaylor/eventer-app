@@ -1,15 +1,17 @@
 "use client";
 
-import { Ticket } from "@kaboodle-events-app/db/schema";
+import { EventWithTickets } from "@kaboodle-events-app/db/schema";
+import { useMemo, useState } from "react";
 import PurchaseTicketListItem from "../core/PurchaseTicketListItem";
 import { Button } from "../ui/button";
-import { useMemo, useState } from "react";
 
-interface TicketsSectionProps {
-  tickets: Ticket[];
+interface ContentSectionProps {
+  event: EventWithTickets;
 }
 
-const TicketsSection: React.FC<TicketsSectionProps> = ({ tickets }) => {
+const ContentSection: React.FC<ContentSectionProps> = ({ event }) => {
+  const { tickets } = event;
+
   const [selectedTickets, setSelectedTickets] = useState<{ [ticketId: string]: number }>(
     tickets.reduce((acc, ticket) => ({ ...acc, [ticket.id]: 0 }), {}),
   );
@@ -31,9 +33,11 @@ const TicketsSection: React.FC<TicketsSectionProps> = ({ tickets }) => {
   };
 
   return (
-    <section className="p-6">
+    <section className="p-6 gap-6 grid grid-cols-1 container max-w-full lg:max-w-7xl lg:grid-cols-3 lg:gap-12">
+      <p className="font-light col-span-1 lg:col-span-2">{event.description}</p>
+
       {isEventAvailable ? (
-        <>
+        <div>
           <h2 className=" font-bold text-2xl">Tickets</h2>
           <ul>
             {tickets.map((ticket) => (
@@ -50,7 +54,7 @@ const TicketsSection: React.FC<TicketsSectionProps> = ({ tickets }) => {
           <Button variant="default" disabled={isPurchaseDisabled} className="w-full mt-6">
             Purchase Tickets
           </Button>
-        </>
+        </div>
       ) : (
         <p className="border p-4 text-center font-bold">SOLD OUT</p>
       )}
@@ -58,4 +62,4 @@ const TicketsSection: React.FC<TicketsSectionProps> = ({ tickets }) => {
   );
 };
 
-export default TicketsSection;
+export default ContentSection;

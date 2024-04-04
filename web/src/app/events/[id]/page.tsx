@@ -1,6 +1,6 @@
-import EventDescriptionSection from "@/components/event-detail/EventDescriptionSection";
+import EventDescriptionSection from "@/components/event-detail/ContentSection";
 import HeroSection from "@/components/event-detail/HeroSection";
-import TicketsSection from "@/components/event-detail/TicketsSection";
+import ContentSection from "@/components/event-detail/ContentSection";
 import { EventService } from "@/lib/data";
 
 export default async function EventPage({ params }: { params: { id: string } }) {
@@ -10,8 +10,7 @@ export default async function EventPage({ params }: { params: { id: string } }) 
   return (
     <main className="min-h-screen bg-background">
       <HeroSection event={event} />
-      <EventDescriptionSection event={event} />
-      <TicketsSection tickets={event.tickets} />
+      <ContentSection event={event} />
     </main>
   );
 }
