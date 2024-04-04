@@ -33,7 +33,7 @@ const ContentSection: React.FC<ContentSectionProps> = ({ event }) => {
   };
 
   return (
-    <section className="p-6 gap-6 grid grid-cols-1 container max-w-full sm:max-w-2xl lg:max-w-7xl lg:grid-cols-3 lg:gap-12">
+    <section className="px-6 py-12 lg:p-12 gap-6 grid grid-cols-1 container max-w-full sm:max-w-2xl lg:max-w-7xl lg:grid-cols-3 lg:gap-12">
       <div className="col-span-1 lg:col-span-2">
         <p className="font-light">{event.description}</p>
       </div>
