@@ -99,7 +99,7 @@ const CreateEventForm: React.FC = () => {
       price: 0,
       bookingFee: 0,
       quantity: 0,
-    });
+    } as FormSchema["tickets"][0]);
   };
 
   const handleRemoveTicket = (index: number) => {
