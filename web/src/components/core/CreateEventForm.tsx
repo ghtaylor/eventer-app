@@ -13,6 +13,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Input } from "../ui/input";
 import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../ui/select";
+import { NewEventWithTickets } from "@kaboodle-events-app/db/schema";
 
 const formSchema = z.object({
   name: z.string().trim().min(3, "Event name must be at least 3 characters long.").max(256, "Event name is too long."),
@@ -51,7 +52,11 @@ const formSchema = z.object({
 
 type FormSchema = z.infer<typeof formSchema>;
 
-const CreateEventForm: React.FC = () => {
+export interface CreateEventFormProps {
+  onSubmit: (event: NewEventWithTickets) => void;
+}
+
+const CreateEventForm: React.FC<CreateEventFormProps> = ({ onSubmit }) => {
   const form = useForm<FormSchema>({
     resolver: zodResolver(formSchema),
 
@@ -81,8 +86,18 @@ const CreateEventForm: React.FC = () => {
     name: "tickets",
   });
 
-  const onSubmit = async (data: FormSchema) => {
-    console.log(data);
+  const handleSubmit = async (data: FormSchema) => {
+    onSubmit({
+      name: data.name,
+      description: data.description,
+      date: data.date,
+      tickets: data.tickets.map((ticket) => ({
+        type: ticket.type,
+        priceCentAmount: Number(ticket.price.toFixed(2)) * 100,
+        bookingFeeCentAmount: Number(ticket.bookingFee.toFixed(2)) * 100,
+        quantity: ticket.quantity,
+      })),
+    });
   };
 
   const formatDate = (date: Date): string =>
@@ -111,7 +126,7 @@ const CreateEventForm: React.FC = () => {
   return (
     <Form {...form}>
       <form
-        onSubmit={form.handleSubmit(onSubmit)}
+        onSubmit={form.handleSubmit(handleSubmit)}
         className="space-y-6 max-h-[600px] overflow-y-scroll overflow-x-visible"
       >
         <FormField
