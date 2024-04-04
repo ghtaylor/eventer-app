@@ -1,6 +1,6 @@
 import { EventService } from "@/lib/data";
 import EventListItem from "../core/EventListItem";
-import CreateEventListItem from "../core/CreateEventListItem";
+import CreateEvent from "./CreateEvent";
 
 const EventsSection: React.FC = async () => {
   const eventService = new EventService();
@@ -12,7 +12,7 @@ const EventsSection: React.FC = async () => {
         {events.map((event) => (
           <EventListItem className="h-96 md:h-[32rem]" key={event.id} event={event} href={`/events/${event.id}`} />
         ))}
-        <CreateEventListItem href="#" className="h-96 md:h-[32rem]" />
+        <CreateEvent />
       </ul>
     </section>
   );
