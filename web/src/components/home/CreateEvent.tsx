@@ -3,7 +3,7 @@
 import { useState } from "react";
 import CreateEventDialog from "../core/CreateEventDialog";
 import CreateEventListItem from "../core/CreateEventListItem";
-import CreateEventForm, { CreateEventFormProps } from "../core/CreateEventForm";
+import CreateEventForm, { CreateEventFormProps } from "../core/create-event-form/CreateEventForm";
 import { createEvent } from "@/app/actions";
 
 const CreateEvent: React.FC = () => {
