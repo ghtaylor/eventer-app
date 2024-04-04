@@ -11,7 +11,7 @@ interface PurchaseTicketListItemProps {
   decrementCount?: () => void;
 }
 
-const PurchaseTicketListItem = forwardRef<
+const TicketCounterListItem = forwardRef<
   HTMLLIElement,
   React.HTMLAttributes<HTMLLIElement> & PurchaseTicketListItemProps
 >(({ ticket, selectedCount, incrementCount, decrementCount, className, ...props }, ref) => {
@@ -38,6 +38,6 @@ const PurchaseTicketListItem = forwardRef<
   );
 });
 
-PurchaseTicketListItem.displayName = "PurchaseTicketListItem";
+TicketCounterListItem.displayName = "PurchaseTicketListItem";
 
-export default PurchaseTicketListItem;
+export default TicketCounterListItem;

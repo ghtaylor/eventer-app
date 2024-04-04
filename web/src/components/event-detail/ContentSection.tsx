@@ -2,7 +2,7 @@
 
 import { EventWithTickets } from "@kaboodle-events-app/db/schema";
 import { useMemo, useState } from "react";
-import PurchaseTicketListItem from "../core/PurchaseTicketListItem";
+import TicketCounterListItem from "../core/TicketCounterListItem";
 import { Button } from "../ui/button";
 
 interface ContentSectionProps {
@@ -41,7 +41,7 @@ const ContentSection: React.FC<ContentSectionProps> = ({ event }) => {
           <h2 className=" font-bold text-2xl">Tickets</h2>
           <ul>
             {tickets.map((ticket) => (
-              <PurchaseTicketListItem
+              <TicketCounterListItem
                 key={ticket.id}
                 ticket={ticket}
                 incrementCount={() => handleIncrementCount(ticket.id)}
