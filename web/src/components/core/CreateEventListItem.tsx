@@ -12,10 +12,10 @@ const CreateEventListItem = forwardRef<
       <Button
         variant="ghost"
         onClick={onClick}
-        className={cn("h-full w-full flex flex-col justify-center items-center", className)}
+        className={cn("h-full w-full flex flex-col gap-1 justify-center items-center", className)}
       >
-        <LuPlus className="text-7xl" />
-        <span className="text-lg">Create Event</span>
+        <LuPlus className="h-12 w-12" />
+        <span className="text-lg tracking-tighter">Create Event</span>
       </Button>
     </li>
   );

@@ -7,7 +7,7 @@ const Navbar: React.FC = () => (
       <Link href="/">Eventer</Link>
     </h1>
     <div>
-      <LuMenu className="text-4xl" />
+      <LuMenu className="h-8 w-8" />
     </div>
   </nav>
 );
