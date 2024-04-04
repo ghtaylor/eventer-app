@@ -1,6 +1,5 @@
 import { DialogProps } from "@radix-ui/react-dialog";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "../ui/dialog";
-import CreateEventForm from "./CreateEventForm";
 
 const CreateEventDialog: React.FC<DialogProps> = ({ children, ...props }) => {
   return (
