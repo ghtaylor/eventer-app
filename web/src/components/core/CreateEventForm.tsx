@@ -79,10 +79,6 @@ const CreateEventForm: React.FC<CreateEventFormProps> = ({ onSubmit }) => {
     remove,
   } = useFieldArray({
     control: form.control,
-    rules: {
-      minLength: 1,
-      maxLength: 3,
-    },
     name: "tickets",
   });
 
