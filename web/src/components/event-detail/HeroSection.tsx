@@ -2,18 +2,22 @@
 
 import { EventWithTickets } from "@kaboodle-events-app/db/schema";
 import Image from "next/image";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 
 interface HeroSectionProps {
   event: EventWithTickets;
 }
 
 const HeroSection: React.FC<HeroSectionProps> = ({ event }) => {
-  const formattedDate = new Date(event.date).toLocaleDateString("en-GB", {
-    day: "2-digit",
-    month: "long",
-    year: "numeric",
-  });
+  const formattedDate = useMemo(
+    () =>
+      new Date(event.date).toLocaleDateString("en-GB", {
+        day: "2-digit",
+        month: "long",
+        year: "numeric",
+      }),
+    [event.date],
+  );
 
   const [placeholderImageRequired, setPlaceholderImageRequired] = useState(false);
 
