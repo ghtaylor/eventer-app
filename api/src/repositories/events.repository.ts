@@ -11,6 +11,7 @@ export default class EventsRepository implements Repository<schema.EventWithTick
   getAll(): ResultAsync<schema.EventWithTickets[], ServiceError> {
     return fromPromise(
       this.db.query.events.findMany({
+        orderBy: (events, { asc }) => [asc(events.date)],
         with: {
           tickets: true,
         },
