@@ -33,12 +33,12 @@ const ContentSection: React.FC<ContentSectionProps> = ({ event }) => {
   };
 
   return (
-    <section className="p-6 gap-6 grid grid-cols-1 container max-w-full lg:max-w-7xl lg:grid-cols-3 lg:gap-12">
+    <section className="p-6 gap-6 grid grid-cols-1 container max-w-full md:max-w-2xl lg:max-w-7xl lg:grid-cols-3 lg:gap-12">
       <p className="font-light col-span-1 lg:col-span-2">{event.description}</p>
 
       {isEventAvailable ? (
         <div>
-          <h2 className=" font-bold text-2xl">Tickets</h2>
+          <h2 className="font-bold text-2xl">Tickets</h2>
           <ul>
             {tickets.map((ticket) => (
               <TicketCounterListItem
@@ -56,7 +56,7 @@ const ContentSection: React.FC<ContentSectionProps> = ({ event }) => {
           </Button>
         </div>
       ) : (
-        <p className="border p-4 text-center font-bold">SOLD OUT</p>
+        <p className="border self-center p-4 text-center font-bold">SOLD OUT</p>
       )}
     </section>
   );
