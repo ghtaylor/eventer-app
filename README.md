@@ -2,6 +2,12 @@
 
 A full-stack event application that enables the user to view, create and delete events.
 
+## Demo
+
+The following video shows viewing, creating and deleting event. It also shows that the site is responsive and has been built mobile-first.
+
+![Demo Video](/docs/event-app.mp4)
+
 ## Getting Started
 
 **To get the application running:**
@@ -42,11 +48,11 @@ This repo utilises `pnpm workspaces` for monorepo tooling.
 
 - The frontend of the application: Built using Next.js 14 and utilising the new `app` directory and its benefits.
 
+- Completely responsive UI. The styling has been written mobile-first, with support for larger screen sizes. **Try resizing the window!**
+
 - A conscious effort has been made to separate UI into meaningful components, including the usage of `forwardRef` and class name merging to provide control of the DOM element and component styling to the consumer.
 
 - Utitilised [shadcn/ui](https://ui.shadcn.com/) for a number of components, to provide an accessible and easy-to-use interface.
-
-- Completely responsive UI: **Try resizing the window!**
 
 - The app takes advantage of [Server-Side Rendering (SSR)](https://nextjs.org/docs/app/building-your-application/data-fetching/fetching-caching-and-revalidating#fetching-data-on-the-server-with-fetch) to fetch events data for the index page and specific event data on the `/event/[id]` pages.
 
