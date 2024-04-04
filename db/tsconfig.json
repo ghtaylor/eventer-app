@@ -1,6 +1,5 @@
 {
   "extends": "@tsconfig/recommended/tsconfig.json",
-
-  "include": ["index.ts", "schema.ts", "drizzle.config.ts"],
+  "include": ["index.ts", "schema.ts", "seed.ts", "drizzle.config.ts"],
   "exclude": ["node_modules"]
 }

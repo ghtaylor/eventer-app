@@ -2,6 +2,9 @@
   "name": "@kaboodle-events-app/web",
   "version": "0.1.0",
   "private": true,
+  "files": [
+    "**/*"
+  ],
   "scripts": {
     "dev": "next dev",
     "build": "next experimental-compile",

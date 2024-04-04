@@ -8,11 +8,14 @@
   "scripts": {
     "migration:generate": "drizzle-kit generate:pg",
     "migration:run": "drizzle-kit push:pg",
-    "studio": "drizzle-kit studio"
+    "studio": "drizzle-kit studio",
+    "seed-db": "ts-node ./seed.ts",
+    "run-migrations-and-seed": "npm run migration:run && npm run seed-db"
   },
   "dependencies": {
     "drizzle-orm": "^0.30.7",
     "drizzle-zod": "^0.5.1",
+    "postgres": "^3.4.4",
     "zod": "^3.22.4"
   },
   "devDependencies": {

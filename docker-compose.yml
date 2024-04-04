@@ -13,5 +13,49 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
+  db-setup:
+    depends_on:
+      - postgres
+    build:
+      context: .
+      target: db-setup
+    environment:
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_NAME: ${DB_NAME}
+      DB_HOST: postgres
+
+  api:
+    depends_on:
+      - postgres
+    build:
+      context: .
+      target: api
+      args:
+        - API_PORT=${API_PORT}
+    environment:
+      API_PORT: ${API_PORT}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_NAME: ${DB_NAME}
+      DB_HOST: postgres
+
+    ports:
+      - "${API_PORT}:${API_PORT}"
+
+  web:
+    depends_on:
+      - postgres
+    build:
+      context: .
+      target: web
+      args:
+        - WEB_PORT=${WEB_PORT}
+    environment:
+      PORT: ${WEB_PORT}
+      API_BASE_URL: http://api:${API_PORT}
+    ports:
+      - "${WEB_PORT}:${WEB_PORT}"
+
 volumes:
   postgres_data:
