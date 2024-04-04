@@ -8,7 +8,6 @@ import { redirect } from "next/navigation";
 const eventService = new EventService();
 
 export async function createEvent(event: NewEventWithTickets) {
-  console.log(event);
   await eventService.createEvent(event);
   revalidatePath("/");
 }

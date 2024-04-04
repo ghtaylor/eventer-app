@@ -35,13 +35,11 @@ export default class EventsController {
   }
 
   create(req: Request, res: Response): Promise<void> {
-    console.log(JSON.stringify(req.body, null, 2));
     return this.parseNewEventWithTickets(req.body)
       .asyncAndThen(this.repository.create.bind(this.repository))
       .match(
         () => void res.status(201).send(),
         (error) => {
-          console.log(error);
           if (error instanceof ParseError) return void res.status(400).json({ error: error.message });
           return void res.status(500).json({ error: error.message });
         },
