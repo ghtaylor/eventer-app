@@ -5,7 +5,7 @@ import CreateEventForm from "./CreateEventForm";
 const CreateEventDialog: React.FC<DialogProps> = ({ children, ...props }) => {
   return (
     <Dialog {...props}>
-      <DialogContent>
+      <DialogContent className="max-h-[600px] overflow-y-scroll overflow-x-visible">
         <DialogHeader>
           <DialogTitle>Create Event</DialogTitle>
           <DialogDescription>Complete the following details to create an event.</DialogDescription>

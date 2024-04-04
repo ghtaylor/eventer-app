@@ -121,10 +121,7 @@ const CreateEventForm: React.FC<CreateEventFormProps> = ({ onSubmit }) => {
 
   return (
     <Form {...form}>
-      <form
-        onSubmit={form.handleSubmit(handleSubmit)}
-        className="space-y-6 max-h-[600px] overflow-y-scroll overflow-x-visible"
-      >
+      <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-6">
         <FormField
           control={form.control}
           name="name"
