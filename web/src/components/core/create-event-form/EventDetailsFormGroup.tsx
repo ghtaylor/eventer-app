@@ -1,15 +1,15 @@
 import { cn } from "@/lib/utils";
-import { FormControl, FormField, FormItem, FormLabel, FormMessage } from "../../ui/form";
-import { Input } from "../../ui/input";
-import { Popover, PopoverContent, PopoverTrigger } from "../../ui/popover";
+import { UseFormReturn } from "react-hook-form";
 import { LuCalendar } from "react-icons/lu";
 import { Button } from "../../ui/button";
 import { Calendar } from "../../ui/calendar";
-import { UseFormReturn } from "react-hook-form";
-import { FormSchema } from "./formSchema";
+import { FormControl, FormField, FormItem, FormLabel, FormMessage } from "../../ui/form";
+import { Input } from "../../ui/input";
+import { Popover, PopoverContent, PopoverTrigger } from "../../ui/popover";
+import { CreateEventFormSchema } from "./createEventFormSchema";
 
 interface EventDetailsFormGroupProps {
-  form: UseFormReturn<FormSchema>;
+  form: UseFormReturn<CreateEventFormSchema>;
 }
 
 const EventDetailsFormGroup: React.FC<EventDetailsFormGroupProps> = ({ form }) => {

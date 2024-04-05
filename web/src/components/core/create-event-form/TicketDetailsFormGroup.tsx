@@ -1,14 +1,14 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { FormField, FormItem, FormLabel, FormControl, FormMessage } from "@/components/ui/form";
-import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select";
-import { Input } from "@/components/ui/input";
-import { UseFormReturn, useFieldArray } from "react-hook-form";
-import { FormSchema } from "./formSchema";
 import { Button } from "@/components/ui/button";
+import { FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { UseFormReturn, useFieldArray } from "react-hook-form";
 import { LuPlus } from "react-icons/lu";
+import { CreateEventFormSchema } from "./createEventFormSchema";
 
 interface TicketDetailsFormGroupProps {
-  form: UseFormReturn<FormSchema>;
+  form: UseFormReturn<CreateEventFormSchema>;
 }
 
 const TicketDetailsFormGroup: React.FC<TicketDetailsFormGroupProps> = ({ form }) => {
@@ -28,7 +28,7 @@ const TicketDetailsFormGroup: React.FC<TicketDetailsFormGroupProps> = ({ form })
       price: 0,
       bookingFee: 0,
       quantity: 0,
-    } as FormSchema["tickets"][0]);
+    } as CreateEventFormSchema["tickets"][0]);
   };
 
   const handleRemoveTicket = (index: number) => {

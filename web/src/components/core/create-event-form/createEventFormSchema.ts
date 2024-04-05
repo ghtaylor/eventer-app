@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-export const FormSchema = z.object({
+export const CreateEventFormSchema = z.object({
   name: z.string().trim().min(3, "Event name must be at least 3 characters long.").max(256, "Event name is too long."),
   description: z.string().trim().max(1024, "Description is too long."),
   date: z.date(),
@@ -35,4 +35,4 @@ export const FormSchema = z.object({
     .max(3),
 });
 
-export type FormSchema = z.infer<typeof FormSchema>;
+export type CreateEventFormSchema = z.infer<typeof CreateEventFormSchema>;

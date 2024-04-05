@@ -17,9 +17,9 @@ const CreateEvent: React.FC = () => {
     setCreateEventOpen(true);
   };
 
-  const handleOnSubmit: CreateEventFormProps["onSubmit"] = (event) => {
+  const handleOnSubmit: CreateEventFormProps["onSubmit"] = (formSchema) => {
     setCreateEventOpen(false);
-    createEvent(event);
+    createEvent(formSchema);
   };
 
   return (
