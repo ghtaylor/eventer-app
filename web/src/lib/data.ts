@@ -1,4 +1,4 @@
-import { EventWithTickets, NewEventWithTickets } from "@kaboodle-events-app/db/schema";
+import { EventWithTickets, NewEventWithTickets } from "@eventer-app/db/schema";
 
 const API_BASE_URL = process.env.API_BASE_URL!;
 

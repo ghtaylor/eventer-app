@@ -1,7 +1,7 @@
 "use server";
 
 import { EventService } from "@/lib/data";
-import { NewEventWithTickets } from "@kaboodle-events-app/db/schema";
+import { NewEventWithTickets } from "@eventer-app/db/schema";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 

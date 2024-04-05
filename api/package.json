@@ -1,5 +1,5 @@
 {
-  "name": "@kaboodle-events-app/api",
+  "name": "@eventer-app/api",
   "version": "1.0.0",
   "scripts": {
     "dev": "nodemon --exec node -r @swc-node/register src/index.ts",
@@ -15,7 +15,7 @@
     "swc-node": "^1.0.0"
   },
   "dependencies": {
-    "@kaboodle-events-app/db": "workspace:*",
+    "@eventer-app/db": "workspace:*",
     "dotenv": "^16.4.5",
     "drizzle-orm": "^0.30.7",
     "express": "^4.19.2",

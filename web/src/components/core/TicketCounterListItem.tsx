@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { Ticket } from "@kaboodle-events-app/db/schema";
+import { Ticket } from "@eventer-app/db/schema";
 import React, { forwardRef, useMemo } from "react";
 import { LuMinus, LuPlus } from "react-icons/lu";
 import { Button } from "../ui/button";

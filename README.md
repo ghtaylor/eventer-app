@@ -15,13 +15,13 @@ The following video shows viewing, creating and deleting event. It also shows th
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/ghtaylor/kaboodle-events-app.git
+   git clone https://github.com/ghtaylor/eventer-app.git
    ```
 
 2. Navigate to the repository
 
    ```bash
-   cd ./kaboodle-events-app
+   cd ./eventer-app
    ```
 
 3. Duplicate `.env.example` and rename it to `.env`. You don't need to change the values. This is used by Docker in the next step.

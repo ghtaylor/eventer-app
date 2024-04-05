@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { EventWithTickets } from "@kaboodle-events-app/db/schema";
+import { EventWithTickets } from "@eventer-app/db/schema";
 import Image from "next/image";
 import Link, { LinkProps } from "next/link";
 import { forwardRef, useMemo, useState } from "react";

@@ -1,6 +1,6 @@
 "use client";
 
-import { EventWithTickets } from "@kaboodle-events-app/db/schema";
+import { EventWithTickets } from "@eventer-app/db/schema";
 import Image from "next/image";
 import { useMemo, useState } from "react";
 import { LuTrash2 } from "react-icons/lu";

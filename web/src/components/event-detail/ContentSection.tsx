@@ -1,6 +1,6 @@
 "use client";
 
-import { EventWithTickets } from "@kaboodle-events-app/db/schema";
+import { EventWithTickets } from "@eventer-app/db/schema";
 import { useMemo, useState } from "react";
 import TicketCounterListItem from "../core/TicketCounterListItem";
 import { Button } from "../ui/button";

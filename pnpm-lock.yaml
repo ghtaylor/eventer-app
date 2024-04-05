@@ -41,7 +41,7 @@ importers:
 
   api:
     dependencies:
-      '@kaboodle-events-app/db':
+      '@eventer-app/db':
         specifier: workspace:*
         version: link:../db
       dotenv:
@@ -103,12 +103,12 @@ importers:
 
   web:
     dependencies:
+      '@eventer-app/db':
+        specifier: workspace:*
+        version: link:../db
       '@hookform/resolvers':
         specifier: ^3.3.4
         version: 3.3.4(react-hook-form@7.51.2)
-      '@kaboodle-events-app/db':
-        specifier: workspace:*
-        version: link:../db
       '@radix-ui/react-accordion':
         specifier: ^1.1.2
         version: 1.1.2(@types/react-dom@18.2.23)(@types/react@18.2.74)(react-dom@18.2.0)(react@18.2.0)

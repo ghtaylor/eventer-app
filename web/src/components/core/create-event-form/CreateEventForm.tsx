@@ -1,7 +1,7 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { NewEventWithTickets } from "@kaboodle-events-app/db/schema";
+import { NewEventWithTickets } from "@eventer-app/db/schema";
 import { useFieldArray, useForm } from "react-hook-form";
 import { LuPlus } from "react-icons/lu";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../../ui/accordion";

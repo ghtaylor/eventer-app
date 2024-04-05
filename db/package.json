@@ -1,5 +1,5 @@
 {
-  "name": "@kaboodle-events-app/db",
+  "name": "@eventer-app/db",
   "private": true,
   "version": "1.0.0",
   "exports": {

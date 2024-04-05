@@ -1,4 +1,4 @@
-import * as schema from "@kaboodle-events-app/db/schema";
+import * as schema from "@eventer-app/db/schema";
 import Repository from "./base.repository";
 import { eq } from "drizzle-orm";
 import { PostgresJsDatabase } from "drizzle-orm/postgres-js";

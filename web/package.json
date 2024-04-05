@@ -1,5 +1,5 @@
 {
-  "name": "@kaboodle-events-app/web",
+  "name": "@eventer-app/web",
   "version": "0.1.0",
   "private": true,
   "files": [
@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.4",
-    "@kaboodle-events-app/db": "workspace:*",
+    "@eventer-app/db": "workspace:*",
     "@radix-ui/react-accordion": "^1.1.2",
     "@radix-ui/react-alert-dialog": "^1.0.5",
     "@radix-ui/react-dialog": "^1.0.5",

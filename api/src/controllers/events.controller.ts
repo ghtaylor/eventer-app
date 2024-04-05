@@ -1,4 +1,4 @@
-import * as schema from "@kaboodle-events-app/db/schema";
+import * as schema from "@eventer-app/db/schema";
 import { ParseError } from "errors/ParseError";
 import { Request, Response } from "express";
 import { Result, fromThrowable } from "neverthrow";

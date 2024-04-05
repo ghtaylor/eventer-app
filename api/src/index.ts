@@ -2,7 +2,7 @@ import express from "express";
 import EventsRepository from "repositories/events.repository";
 import postgres from "postgres";
 import { drizzle } from "drizzle-orm/postgres-js";
-import * as schema from "@kaboodle-events-app/db/schema";
+import * as schema from "@eventer-app/db/schema";
 import { createEventsRouter } from "routes/events.route";
 import EventsController from "controllers/events.controller";
 
