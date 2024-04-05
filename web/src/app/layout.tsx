@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Kaboodle Events",
+  title: "Eventer",
   description: "Make your event unforgettable.",
 };
 
