@@ -4,9 +4,13 @@ A full-stack event application that enables the user to view, create and delete 
 
 ## Demo
 
-The following video shows viewing, creating and deleting event. It also shows that the site is responsive and has been built mobile-first.
+### Mobile
 
-![Demo Video](/docs/event-app.mp4)
+https://github.com/ghtaylor/eventer-app/assets/5741857/65f54380-6dcc-43e5-9cd8-0fcabc51571d
+
+### Desktop
+
+https://github.com/ghtaylor/eventer-app/assets/5741857/7093dd8b-4089-451c-b6fc-b92f9e530c8f
 
 ## Getting Started
 
