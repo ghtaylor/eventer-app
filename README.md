@@ -40,7 +40,7 @@ And the REST API at:
 
 http://localhost:3000
 
-## Project Structure
+## About
 
 This repo utilises `pnpm workspaces` for monorepo tooling.
 
@@ -64,13 +64,15 @@ This repo utilises `pnpm workspaces` for monorepo tooling.
 
 - Used Drizzle for ORM.
 
-- Built some abstractions in as a proof of concept, but decided to stop spending time on this component to focus on the frontend.
+- Used [neverthrow](https://github.com/supermacro/neverthrow) for declarative error handling.
+
+- Built some abstractions in as a proof of concept, but I decided to stop spending time on this to focus on the frontend.
 
 ### /db
 
 - Contains the schemas for the database.
 
-- This package is a dependency of both `/web` and `api`, as they import the schemas to ensure **full type-safety**.
+- This package exports Zod schemas of the database tables. Both `/web` and `api` depend on this package, as they import the schemas to ensure **full type-safety**.
 
 - Contains the SQL migrations used to setup the schema of the database.
 
@@ -82,13 +84,19 @@ Things I'd do if I had more time, or general thoughts about decisions made.
 
 ### General
 
-- On any serious application I would definitely write tests. For example, on the backend it would have been very valuable to write integration tests for the `EventRepository`, with a Postgres DB spun up in a container.
-- This application isn't very scalable. In a Production environment, a lot more thought would go into the deployment of the different components and I'd probably opt to completely remove Express in favour of some form of serverless functions. Additionally, the Next.js server could be deployed utilising a CDN and Edge Functions.
+- This project is currently void of any tests, and on any serious application it would be my first priority in many instances. For example, on the backend it would have been very valuable to write integration tests for the `EventRepository`, with a Postgres DB spun up in a container.
+
+- The application isn't very scalable. In a Production environment, a lot more thought would go into the deployment of the different components and I'd probably opt to completely remove Express in favour of some form of serverless functions. Additionally, the Next.js server could be deployed utilising a CDN and Edge Functions.
+
 - SQL isn't necessarily the way to go with this data structure, it was just an easy way of getting something up and running. For a high-demand application, the performance and scalability of the database would need to be strongly considered. A NoSQL database would be a completetly viable approach.
+
+- Having a separate `/api` package isn't technically necessary. As a Next.js application is being used, the APIs could have been bundled in.
+
+- The environment variables currently come from a `.env` file which has been intentionally omitted from the pushed source code. In a real environment, they'd almost certainly come from elsewhere, such as the CI/CD tool being used for deployments.
 
 ### Frontend
 
-- Error handling for submission of the 'Create event' form. In case the API does not work expected, I'd like to handle this and provide information to the user via a Toast message.
+- Whilst there is strong validation on the 'Create event' form fields themselves, once the information is submitted to the backend, error handling is missing. In case the API does not work expected, I'd like to handle this and provide information to the user via a Toast message.
 
 - The 'Create event' form input fields for currency isn't totally natural and could be much improved:
 
@@ -96,7 +104,7 @@ Things I'd do if I had more time, or general thoughts about decisions made.
   - Sanitize the input `onBlur`... e.g. `£3.1` -> `£3.10`.
   - Create a `<CurrencyInput currencySign='£' />` component to encapsulate this and more logic.
 
-- Some opt for making very atomic components, such as `<Heading />`, `<Subheading />`, `<Text />` etc. I feel like the benefit of Tailwind is that you can keep it simple and avoid component hell. I feel like [this is a great take on it](https://youtu.be/QBajvZaWLXs?si=aId6SUtwaN8dUeKf&t=74).
+- Some opt for making very atomic components, such as `<Heading />`, `<Subheading />`, `<Text />` etc. I feel like the benefit of Tailwind is that you can keep it simple and avoid component hell. I feel like [this is a great take on it](https://youtu.be/QBajvZaWLXs?si=aId6SUtwaN8dUeKf&t=74), as well as [Tailwind's documented opinion](https://tailwindcss.com/docs/reusing-styles#using-editor-and-language-features).
 
 - I could've used some global state to build a Shopping Cart functionality; whether that'd been using React's native Context API or opting for a third-party library such as Zustand.
 
@@ -107,3 +115,5 @@ Things I'd do if I had more time, or general thoughts about decisions made.
 - Generate the ID of the event using the name so that the frontend URL could appear friendler, making it easier for human reference.
 
 - Better abstractions and dependency injection. Perhaps could use a framework like Nest.js.
+
+- When submitting data to the backend or fetching it, `tickets` are always included on an `event`. I find this can get messy, particularly for updating. I'd probably opt for using something like GraphQL to reduce this complexity.
