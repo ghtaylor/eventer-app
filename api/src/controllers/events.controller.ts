@@ -4,8 +4,9 @@ import { Request, Response } from "express";
 import { Result, fromThrowable } from "neverthrow";
 import Repository from "repositories/base.repository";
 import { z } from "zod";
+import { BaseController } from "./base.controller";
 
-export default class EventsController {
+export default class EventsController implements BaseController<Request, Response> {
   constructor(private readonly repository: Repository<schema.EventWithTickets, schema.NewEventWithTickets>) {}
 
   private parseId = fromThrowable(
